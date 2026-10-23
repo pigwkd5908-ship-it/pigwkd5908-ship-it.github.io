@@ -943,13 +943,14 @@ const EXTERNAL_LISTINGS = [
     const fallback=document.createElement('div');fallback.className='market-noimage';
     fallback.innerHTML='<span class="house-icon" aria-hidden="true">⌂</span><strong>'+encodeText(m.source)+'</strong><small>상세 사진은 광고에서 확인</small>';
     a.appendChild(fallback);
-    if(m.image){
-      const img=document.createElement('img');
-      img.src=m.image;img.alt=m.title+' 매물 광고 사진';img.loading='lazy';
-      img.addEventListener('load',()=>{fallback.style.display='none';});
-      img.addEventListener('error',()=>{img.remove();fallback.style.display='flex';});
-      a.appendChild(img);
-    }
+    // 실제 원본 사진이 제공되면 images/listings/<광고번호>.jpg 파일만 올려도 자동 반영됩니다.
+    // 사진이 없는 광고는 실제 사진인 것처럼 다른 매물 사진으로 대체하지 않습니다.
+    const photoSrc = m.image || ('images/listings/' + encodeURIComponent(m.id) + '.jpg');
+    const img=document.createElement('img');
+    img.src=photoSrc;img.alt=m.title+' 매물 대표 사진';img.loading='lazy';
+    img.addEventListener('load',()=>{fallback.style.display='none';});
+    img.addEventListener('error',()=>{img.remove();fallback.style.display='flex';});
+    a.appendChild(img);
     const source=document.createElement('span');source.className='badge-source';source.textContent=m.source;a.appendChild(source);
     const content=document.createElement('div');content.className='market-card-content';
     const meta=document.createElement('div');meta.className='market-card-top';

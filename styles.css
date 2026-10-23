@@ -427,3 +427,18 @@ button { cursor: pointer; }
 @media (max-width:1000px){.market-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.market-controls{grid-template-columns:1fr 1fr}.platform-directory-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:740px){.market-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.market-stats{grid-template-columns:1fr}.reviews-grid{grid-template-columns:1fr}.review-feature{min-height:0}}
 @media (max-width:520px){.market-grid{grid-template-columns:1fr}.market-controls{grid-template-columns:1fr}.market-result-line{flex-direction:column;align-items:flex-start}.platform-directory-grid{grid-template-columns:1fr}.review-feature{padding:20px;gap:12px}.review-symbol{flex-basis:40px;width:40px;height:40px;font-size:20px}}
+
+/* 2026-10-23: Naver-only testimonial panel, 5 official platform shortcuts */
+.reviews-grid{grid-template-columns:minmax(0,1fr)}
+.review-feature-single{min-height:0;max-width:none;align-items:center;box-shadow:0 12px 36px rgba(18,38,31,.05)}
+.review-feature-single .review-feature-copy{max-width:760px}
+.platform-directory-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+.platform-directory-grid a{align-content:center}
+.platform-directory-grid a small{padding-left:0}
+.platform-icon-zigbang{background:#3377ed}
+.market-photo .market-noimage{transition:background .2s}
+.market-noimage strong{font-size:17px}
+.market-noimage small{font-size:12px;color:rgba(255,255,255,.8)}
+@media(max-width:1050px){.platform-directory-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:740px){.platform-directory-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.review-feature-single{align-items:flex-start}}
+@media(max-width:520px){.platform-directory-grid{grid-template-columns:1fr}}
