@@ -393,7 +393,7 @@ button { cursor: pointer; }
 .market-card .price{margin:2px 0 0;font-size:22px;line-height:1.25;font-weight:800;color:#163b2c}
 .market-card .price small{font-size:12px;font-weight:600;color:#77847a;margin-right:4px}
 .market-card .price.unverified{font-size:16px;color:#6f8174}
-.market-card .subline{margin:0;color:#6e7b72;font-size:12px;line-height:1.45;min-height:34px}
+.market-card .subline{margin:0;color:#6e7b72;font-size:12px;line-height:1.5;min-height:36px;max-height:36px;overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow-wrap:anywhere}
 .market-card a.action-link{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;border-radius:12px;background:#f0f5f1;color:#224d3a;font-weight:800;font-size:13px;margin-top:auto}
 .market-card a.action-link:hover{background:#e3eee5}
 .market-load-wrap{text-align:center;margin:28px auto 22px}

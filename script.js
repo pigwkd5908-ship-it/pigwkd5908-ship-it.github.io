@@ -148,7 +148,17 @@ const EXTERNAL_LISTINGS = Array.isArray(window.HAPPYLAND_LISTINGS) ? window.HAPP
     if(!knownPrice(m))price.textContent='가격 확인 필요';
     else if(m.type==='전세')price.textContent='전세 '+formatPrice(m.deposit)+'만원';
     else price.textContent=formatPrice(m.deposit)+' / '+formatPrice(m.rent)+'만원';
-    const subtitle=document.createElement('p');subtitle.className='subline';subtitle.textContent=m.desc||'';
+    // 매물 카드에는 핵심 요약만 표시합니다. 긴 원문은 상세 페이지(property.html)에 그대로 유지합니다.
+    const makeSummary=(description)=>{
+      const raw=String(description||'').replace(/\r/g,'').trim();
+      if(!raw)return '';
+      const lines=raw.split(/\n+/).map(x=>x.trim().replace(/^[✓✔✅•\-]+\s*/,''))
+        .filter(x=>x && !/^\[?(?:한줄\s*요약|체크리스트|가격\s*정보|위치\s*\/\s*교통|방\s*구조|옵션|담당자|상세\s*설명|안내사항|주의사항)\]?[:：]?$/i.test(x));
+      const first=lines.find(x=>!/^\d+[.)]\s/.test(x) && x.length>=6) || lines[0] || '';
+      // 줄바꿈과 체크리스트로 길어진 글을 첫 문구로 요약하며, 상세 내용은 삭제하지 않습니다.
+      return first.length>78?first.slice(0,77).trimEnd()+'…':first;
+    };
+    const subtitle=document.createElement('p');subtitle.className='subline';subtitle.textContent=makeSummary(m.desc);
     const quick=document.createElement('p');quick.className='legal-quickline';
     const facts=[];
     if(m.area!==null&&m.area!==undefined)facts.push('전용 '+m.area+'㎡');
