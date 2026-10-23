@@ -14,7 +14,7 @@ window.HAPPYLAND_LISTINGS = [
     "url": "https://sp.zigbang.com/share/oneroom/50599187?userNo=undefined&stamp=261023151057",
     "local": false,
     "verified": "해피랜드 입력 정보",
-    "status": "closed",
+    "status": "active",
     "images": [
       "images/listings/해피랜드-a-102-1792737742427-0.jpg",
       "images/listings/해피랜드-a-102-1792737742482-1.jpg",
@@ -22,7 +22,35 @@ window.HAPPYLAND_LISTINGS = [
       "images/listings/해피랜드-a-102-1792737742593-3.jpg",
       "images/listings/해피랜드-a-102-1792737742636-4.jpg",
       "images/listings/해피랜드-a-102-1792737742675-5.jpg"
-    ]
+    ],
+    "address": "서울 관악구 신림동 518-48",
+    "buildingUse": "계단실",
+    "area": 14.35,
+    "rooms": 1,
+    "bathrooms": 1,
+    "approvalDate": "2016-11-16",
+    "moveIn": "즉시입주",
+    "floor": "1",
+    "totalFloors": 7,
+    "direction": "남향",
+    "directionBasis": "안방 기준",
+    "parking": "가능",
+    "parkingCount": 7,
+    "feeType": "기타",
+    "feeBreakdown": "",
+    "feeIncluded": [
+      "일반(공용) 관리비",
+      "수도료",
+      "인터넷 사용료",
+      "TV 사용료",
+      "기타 관리비"
+    ],
+    "feeExcluded": [
+      "전기료",
+      "가스사용료",
+      "난방비"
+    ],
+    "feeUnknownBreakdown": true
   },
   {
     "id": "50599187",
