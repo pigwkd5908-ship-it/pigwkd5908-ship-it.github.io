@@ -1,6 +1,5 @@
 /* 프리미엄 타이포그래피: 외부 폰트 이용, 기기에 없는 경우 시스템 서체로 표시 */
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&display=swap');
 
 :root {
   --bg: #f5f1ea;
@@ -560,7 +559,7 @@ body.lightbox-open { overflow: hidden; }
 
 /* ===== HAPPYLAND PREMIUM TYPOGRAPHY + DIRECT SMS CONSULT, OCT 2026 ===== */
 :root{
-  --font-display: "Noto Serif KR", "Nanum Myeongjo", "Batang", serif;
+  --font-display: "Pretendard Variable", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 }
 .section-heading h2,.brand-hero-left h1,.office-copy h2,.detail-top h1,
 .bottom-cta h2,.consult-intro h3{
@@ -743,3 +742,23 @@ html{scroll-padding-top:84px}
   .brand-hero-visual > img{height:255px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+
+/* ===== HAPPYLAND V5: 부드럽고 단정한 중간 굵기 타이포그래피 ===== */
+/* 기존 모바일 글씨 크기, 매물 카드, 문자 상담 레이아웃은 유지 */
+.section-heading h2,
+.brand-hero-left h1,
+.office-copy h2,
+.detail-top h1,
+.bottom-cta h2,
+.consult-intro h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -.035em;
+  line-height: 1.38;
+}
+.brand-text strong { font-weight: 650; }
+.main-nav a { font-weight: 550; }
+.market-card h3, .process-card h3 { font-weight: 600; }
+/* 타이틀과 설명이 지나치게 무겁게 보이지 않도록 균형 조정 */
+.brand-hero-lead, .section-heading p, .market-card p { font-weight: 400; }
