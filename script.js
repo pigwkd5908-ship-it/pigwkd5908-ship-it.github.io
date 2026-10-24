@@ -215,3 +215,75 @@ const EXTERNAL_LISTINGS = Array.isArray(window.HAPPYLAND_LISTINGS) ? window.HAPP
     e.preventDefault();PHOTO_GALLERY.open(pics,'신림동 1463-60 · 101호','');
   }));
 })();
+
+
+/* 고객 직접 작성 문자 상담 — 별도 서버 저장/자동 문자 발송 없음 */
+(function initConsultRequest(){
+  const form=document.getElementById('consultRequestForm');
+  if(!form) return;
+  const field=(id)=>document.getElementById(id);
+  const preview=field('consultPreview');
+  const feedback=field('consultFeedback');
+  const agree=field('consultAgree');
+  const clean=(value)=>String(value ?? '').trim().replace(/\s+/g,' ');
+  const buildText=()=>{
+    const lines=['[해피랜드 부동산 방 찾기 상담]'];
+    const name=clean(field('consultName').value);
+    const phone=clean(field('consultPhone').value);
+    const area=clean(field('consultArea').value);
+    const kind=field('consultType').value;
+    const deposit=clean(field('consultDeposit').value);
+    const rent=clean(field('consultRent').value);
+    const move=field('consultMove').value;
+    const memo=field('consultMemo').value.trim();
+    if(name) lines.push('성함: '+name);
+    if(phone) lines.push('연락처: '+phone);
+    lines.push('희망 지역: '+(area||'(미입력)'));
+    lines.push('방 유형: '+kind);
+    if(deposit) lines.push('보증금: 최대 '+Number(deposit).toLocaleString('ko-KR')+'만원');
+    if(rent) lines.push('월세: 최대 '+Number(rent).toLocaleString('ko-KR')+'만원');
+    lines.push('입주 시기: '+move);
+    if(memo) lines.push('추가 요청:\n'+memo);
+    lines.push('\n※ 해피랜드 홈페이지에서 작성한 상담 문의입니다.');
+    return lines.join('\n');
+  };
+  const updatePreview=()=>{preview.textContent=buildText();feedback.textContent='';};
+  form.addEventListener('input',updatePreview);
+  form.addEventListener('change',updatePreview);
+  updatePreview();
+  const valid=()=>{
+    if(!form.checkValidity()){
+      form.reportValidity();
+      feedback.textContent='필수 항목인 희망 지역과 확인 체크를 완료해 주세요.';
+      return false;
+    }
+    return true;
+  };
+  form.addEventListener('submit',(event)=>{
+    event.preventDefault();
+    if(!valid()) return;
+    const body=encodeURIComponent(buildText());
+    const ios=/iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const smsHref='sms:01065043281'+(ios?'&body=':'?body=')+body;
+    feedback.textContent='문자 앱을 열고 있습니다. 메시지를 확인한 뒤 직접 보내기를 눌러주세요.';
+    window.location.href=smsHref;
+  });
+  field('consultCopyBtn').addEventListener('click',async()=>{
+    if(!valid())return;
+    const body=buildText();
+    try {
+      if(navigator.clipboard?.writeText) await navigator.clipboard.writeText(body);
+      else throw new Error('Clipboard API not available');
+      feedback.textContent='상담 내용을 복사했습니다. 문자 앱이나 카카오톡에 붙여넣어 보내주세요.';
+    } catch (_) {
+      const tmp=document.createElement('textarea');
+      tmp.value=body;tmp.setAttribute('readonly','');
+      tmp.style.cssText='position:fixed;top:-9999px;left:-9999px';
+      document.body.appendChild(tmp);
+      tmp.focus();tmp.select();
+      const done=document.execCommand('copy');
+      tmp.remove();
+      feedback.textContent=done?'상담 내용을 복사했습니다. 원하는 앱에 붙여넣어 보내주세요.':'복사가 지원되지 않는 브라우저입니다. 위 내용을 선택해 직접 복사해 주세요.';
+    }
+  });
+})();

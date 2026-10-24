@@ -58,6 +58,7 @@
 <a href="#market">매물 모아보기</a>
 <a href="#office">사무소 소개</a>
 <a href="#reviews">방문자 후기</a>
+<a href="#consult">문자 상담</a>
 <a class="nav-call" href="tel:01065043281">전화 상담</a>
 </nav>
 </div>
@@ -184,6 +185,80 @@
 <article class="process-card"><span>STEP 02</span><h3>매물 안내</h3><p>조건에 맞는 매물을 상담하고, 핵심 장단점을 빠르게 정리해 드립니다.</p></article>
 <article class="process-card"><span>STEP 03</span><h3>방문 전 확인</h3><p>실제 계약 가능 여부와 주요 조건을 다시 확인한 후 방문 일정을 잡습니다.</p></article>
 <article class="process-card"><span>STEP 04</span><h3>현장 확인 및 상담</h3><p>현장에서 상태를 확인하고, 계약 전 주의사항을 다시 안내합니다.</p></article>
+</div>
+
+<div class="consult-card" id="consult">
+  <div class="consult-intro">
+    <div>
+      <p class="eyebrow">QUICK MESSAGE CONSULTATION</p>
+      <h3>원하는 방 조건을<br/><span>문자로 편하게 보내주세요.</span></h3>
+      <p>어떤 방을 찾으시는지 간단하게 작성해 주세요. 입력한 내용을 문자로 정리해 드립니다.</p>
+      <div class="consult-method"><span aria-hidden="true">✦</span> 문자 수신번호 <strong>010-6504-3281</strong></div>
+      <div class="consult-privacy-note"><strong>안심 안내</strong><br/>입력 내용은 홈페이지 서버에 저장되거나 자동 전송되지 않습니다. 고객님의 휴대폰 문자 앱에서 직접 보내기를 눌러야 전달됩니다.</div>
+    </div>
+  </div>
+  <div class="consult-form-area">
+    <div class="consult-form-heading"><h4>희망 조건 입력</h4><span>* 표시는 필수 항목</span></div>
+    <form id="consultRequestForm" novalidate>
+      <div class="consult-fields">
+        <div class="consult-field">
+          <label for="consultName">성함 <small>(선택)</small></label>
+          <input id="consultName" name="name" type="text" maxlength="30" placeholder="예: 김OO" autocomplete="name"/>
+        </div>
+        <div class="consult-field">
+          <label for="consultPhone">연락처 <small>(선택)</small></label>
+          <input id="consultPhone" name="phone" type="tel" maxlength="25" placeholder="010-0000-0000" autocomplete="tel" inputmode="tel"/>
+        </div>
+        <div class="consult-field">
+          <label for="consultArea">희망 지역 <span class="required-star">*</span></label>
+          <input id="consultArea" name="area" type="text" maxlength="60" placeholder="예: 신림역 도보 10분 이내" required/>
+        </div>
+        <div class="consult-field">
+          <label for="consultType">찾는 방 유형</label>
+          <select id="consultType" name="type">
+            <option value="상관없음">상관없음</option>
+            <option value="원룸">원룸</option>
+            <option value="분리형 원룸">분리형 원룸</option>
+            <option value="투룸">투룸</option>
+            <option value="오피스텔">오피스텔</option>
+          </select>
+        </div>
+        <div class="consult-field">
+          <label for="consultDeposit">희망 보증금 <small>(최대 · 만원)</small></label>
+          <div class="consult-input-unit"><input id="consultDeposit" name="deposit" type="number" min="0" max="1000000" step="1" inputmode="numeric" placeholder="예: 500"/><span>만원</span></div>
+        </div>
+        <div class="consult-field">
+          <label for="consultRent">희망 월세 <small>(최대 · 만원)</small></label>
+          <div class="consult-input-unit"><input id="consultRent" name="rent" type="number" min="0" max="100000" step="1" inputmode="numeric" placeholder="예: 50"/><span>만원</span></div>
+        </div>
+        <div class="consult-field consult-field-wide">
+          <label for="consultMove">입주 희망 시기</label>
+          <select id="consultMove" name="move">
+            <option value="협의 가능">협의 가능</option>
+            <option value="즉시">즉시</option>
+            <option value="2주 이내">2주 이내</option>
+            <option value="1개월 이내">1개월 이내</option>
+            <option value="2개월 이내">2개월 이내</option>
+          </select>
+        </div>
+        <div class="consult-field consult-field-wide">
+          <label for="consultMemo">추가 요청사항 <small>(선택)</small></label>
+          <textarea id="consultMemo" name="memo" rows="3" maxlength="600" placeholder="예: 반려동물 가능, 엘리베이터 필수, 관리비 포함 60만원 이내"></textarea>
+        </div>
+      </div>
+      <div class="consult-preview-wrap">
+        <div class="consult-preview-title"><strong>문자로 전송할 내용</strong><span>입력에 따라 자동 작성됩니다</span></div>
+        <pre id="consultPreview" class="consult-preview" aria-live="polite"></pre>
+      </div>
+      <label class="consult-check"><input id="consultAgree" type="checkbox" required/><span>입력 내용을 문자 앱으로 전달하고, 발송 전에 직접 확인하겠습니다. <b>*</b></span></label>
+      <div class="consult-actions">
+        <button type="submit" class="button button-primary" id="consultSmsBtn">문자 앱 열기 <span aria-hidden="true">↗</span></button>
+        <button type="button" class="button button-outline" id="consultCopyBtn">내용 복사</button>
+      </div>
+      <p class="consult-help">문자는 자동 전송되지 않습니다. 휴대폰에서 문자 앱이 열리면 <strong>전송</strong>을 눌러주세요. PC에서는 ‘내용 복사’를 이용해 주세요.</p>
+      <p id="consultFeedback" class="consult-feedback" role="status" aria-live="polite"></p>
+    </form>
+  </div>
 </div>
 </div>
 </section>

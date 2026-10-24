@@ -1,3 +1,7 @@
+/* 프리미엄 타이포그래피: 외부 폰트 이용, 기기에 없는 경우 시스템 서체로 표시 */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&display=swap');
+
 :root {
   --bg: #f5f1ea;
   --bg-soft: #fbf8f3;
@@ -19,7 +23,9 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-family: "Pretendard Variable", "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-weight: 400;
+  letter-spacing: -.012em;
   color: var(--text);
   background: var(--bg);
   line-height: 1.6;
@@ -550,3 +556,190 @@ body.lightbox-open { overflow: hidden; }
 @media(max-width:700px){.detail-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 [hidden]{display:none!important}
+
+
+/* ===== HAPPYLAND PREMIUM TYPOGRAPHY + DIRECT SMS CONSULT, OCT 2026 ===== */
+:root{
+  --font-display: "Noto Serif KR", "Nanum Myeongjo", "Batang", serif;
+}
+.section-heading h2,.brand-hero-left h1,.office-copy h2,.detail-top h1,
+.bottom-cta h2,.consult-intro h3{
+  font-family:var(--font-display);
+  font-weight:600;
+  letter-spacing:-.047em;
+  word-break:keep-all;
+}
+.brand-text strong,.main-nav a,.market-card h3,.process-card h3{
+  letter-spacing:-.025em;
+}
+.process-card h3{font-size:18px;margin:3px 0 8px}
+.section-heading h2{line-height:1.35}
+.market-card h3{font-weight:700}
+html{scroll-padding-top:84px}
+
+.consult-card{
+  margin-top:44px;
+  display:grid;
+  grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  border-radius:30px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 24px 64px rgba(18,38,31,.11);
+  border:1px solid #e8e5de;
+}
+.consult-intro{
+  background:linear-gradient(160deg,#163c2e 0%,#10291f 72%,#0b2119 100%);
+  color:#fff;padding:45px 36px;display:flex;align-items:flex-start;
+  position:relative;overflow:hidden;
+}
+.consult-intro:after{content:"H";position:absolute;right:-21px;bottom:-95px;font-family:var(--font-display);font-size:330px;line-height:1;opacity:.035;pointer-events:none}
+.consult-intro .eyebrow{color:#d2c39b;font-size:10px;letter-spacing:.18em}
+.consult-intro h3{font-size:clamp(27px,2.8vw,38px);line-height:1.46;margin:2px 0 20px}
+.consult-intro h3 span{color:#e5d3a5}
+.consult-intro p{font-size:15px;line-height:1.85;color:#d4e0d8;max-width:340px}
+.consult-method{margin:29px 0 20px;font-size:14px;color:#e1ebe5}
+.consult-method span{color:#d8c18c;margin-right:8px}
+.consult-method strong{display:block;font-size:24px;letter-spacing:.03em;color:#fff;margin:6px 0 0 20px}
+.consult-privacy-note{border-top:1px solid rgba(255,255,255,.16);padding-top:20px;margin-top:31px;color:#d1dcd5;font-size:12px;line-height:1.85}
+.consult-privacy-note strong{color:#fff}
+.consult-form-area{padding:40px 42px}
+.consult-form-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:21px}
+.consult-form-heading h4{font-size:23px;margin:0;font-weight:700;color:#1a3529}
+.consult-form-heading span{color:#89978e;font-size:12px}
+.consult-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 14px}
+.consult-field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.consult-field-wide{grid-column:1/-1}
+.consult-field label{font-size:13px;color:#2c4438;font-weight:700}
+.consult-field label small{font-size:11px;font-weight:400;color:#86938a}
+.consult-field .required-star,.consult-check b{color:#bb6336}
+.consult-field input,.consult-field select,.consult-field textarea{
+  width:100%;min-width:0;
+  padding:13px 14px;
+  border:1px solid #dfe6de;
+  border-radius:12px;
+  background:#fbfcfa;
+  color:#20372b;
+  font-family:inherit;
+  font-size:15px;
+  box-shadow:none;
+  transition:border-color .15s,box-shadow .15s;
+}
+.consult-field input::placeholder,.consult-field textarea::placeholder{color:#a0aaa3}
+.consult-field input:focus,.consult-field select:focus,.consult-field textarea:focus{
+  outline:none;border-color:#2b5c46;box-shadow:0 0 0 3px rgba(28,67,56,.09);background:#fff
+}
+.consult-field textarea{resize:vertical;min-height:86px;line-height:1.6}
+.consult-input-unit{position:relative}
+.consult-input-unit input{padding-right:55px}
+.consult-input-unit span{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:#738477;font-size:12px;pointer-events:none}
+.consult-preview-wrap{margin-top:23px;background:#f4f6f3;border:1px solid #e0e7df;padding:17px;border-radius:14px}
+.consult-preview-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px}
+.consult-preview-title strong{font-size:13px;color:#243e30}
+.consult-preview-title span{font-size:11px;color:#7e8b80}
+.consult-preview{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;line-height:1.7;font-size:12px;color:#4f6155;font-family:inherit;max-height:190px;overflow-y:auto}
+.consult-check{display:flex;align-items:flex-start;gap:10px;cursor:pointer;padding:15px 0 12px;font-size:12px;line-height:1.55;color:#5c6b61}
+.consult-check input{margin-top:3px;accent-color:#1c4338;width:17px;height:17px;flex-shrink:0}
+.consult-actions{display:flex;gap:10px}
+.consult-actions .button{flex:1;min-height:49px;font-size:14px}
+.consult-help{font-size:11px;color:#7a887d;line-height:1.7;margin:14px 0 0}
+.consult-feedback{font-size:12px;font-weight:700;line-height:1.7;color:#245b42;min-height:1.2em;margin:7px 0 0}
+
+@media(max-width:1050px){
+  .consult-card{grid-template-columns:1fr}
+  .consult-intro{padding:34px}
+  .consult-intro h3 br{display:none}
+  .consult-intro h3{max-width:720px}
+  .consult-privacy-note{max-width:720px}
+}
+@media(max-width:820px){
+  html{scroll-padding-top:70px}
+  body{font-size:14.5px;line-height:1.62}
+  .container{width:min(calc(100% - 28px),1160px)}
+  .section{padding:54px 0}
+  .section-heading{margin-bottom:25px}
+  .section-heading h2{font-size:clamp(22px,5.6vw,27px);line-height:1.4}
+  .section-desc,.office-text{font-size:13px;line-height:1.7}
+  .eyebrow{font-size:10px;letter-spacing:.14em;margin-bottom:12px}
+  .nav-wrap{min-height:62px}
+  .brand{gap:10px}
+  .brand-mark{width:38px;height:38px;border-radius:11px;font-size:18px}
+  .brand-text strong{font-size:15px}
+  .brand-text small{font-size:10px}
+  .main-nav a{font-size:13px}
+  .topbar{font-size:11px}
+  .topbar-inner{gap:3px;min-height:34px;padding:7px 0}
+  .button{font-size:13px;padding:0 15px;min-height:43px}
+  .hero-brand{padding:34px 0 29px}
+  .brand-hero-grid{gap:24px}
+  .brand-hero-left{padding:0}
+  .brand-hero-logo-wrap{width:min(100%,360px);padding:3px 8px;border-radius:15px;margin-bottom:18px}
+  .brand-hero-left h1{font-size:clamp(24px,6.3vw,29px);line-height:1.4;margin-bottom:10px}
+  .brand-hero-lead{font-size:13px;line-height:1.75;margin:0 0 20px}
+  .brand-hero-tags{margin-top:18px;gap:6px}
+  .brand-hero-tags span{font-size:10px;padding:6px 10px}
+  .brand-hero-visual{border-radius:18px}
+  .brand-hero-visual > img{height:300px}
+  .brand-hero-visual-caption{padding:36px 18px 16px}
+  .brand-hero-visual-caption strong{font-size:15px}
+  .hero-photo-note{font-size:10px}
+  .trust-strip{padding-top:17px}
+  .trust-grid article,.strength-card,.process-card{padding:20px;border-radius:17px}
+  .trust-grid h3,.strength-card h3,.process-card h3{font-size:16px;margin:5px 0}
+  .trust-grid p,.strength-card p,.process-card p{font-size:13px;line-height:1.65}
+  .trust-grid article span,.process-card span{width:34px;height:34px;font-size:12px;border-radius:11px}
+  .market-heading{margin-bottom:20px}
+  .market-stats{gap:9px}
+  .market-stats>div{padding:13px 15px;border-radius:15px}
+  .market-stats strong{font-size:27px}
+  .market-stats span{font-size:11px}
+  .market-stats small{font-size:10px}
+  .market-controls{padding:11px;gap:8px;border-radius:17px}
+  .market-controls input,.market-controls select{font-size:15px;min-height:44px;padding:10px;border-radius:10px}
+  .market-card{border-radius:17px}
+  .market-card-content{padding:13px;gap:6px}
+  .market-card h3{font-size:15px;min-height:0;line-height:1.4}
+  .market-card .price{font-size:19px}
+  .market-card .price.unverified{font-size:14px}
+  .market-card .subline{font-size:11px;line-height:1.48;max-height:34px;min-height:0}
+  .market-card .legal-quickline{font-size:11px;padding:6px 8px}
+  .market-card .legal-status-note{font-size:10px}
+  .market-card a.action-link{font-size:12px;padding:11px 12px}
+  .market-card-place{font-size:11px}
+  .market-result-line{font-size:11px}
+  .detail-hero{padding:48px 0 25px}
+  .detail-top h1{font-size:clamp(23px,6vw,29px)}
+  .detail-price-line{font-size:19px}
+  .detail-box{padding:19px}
+  .detail-box h2{font-size:19px}
+  .info-grid strong,.office-panel strong{font-size:13px}
+  .office-copy h2{font-size:clamp(23px,6vw,28px)}
+  .bottom-cta h2{font-size:24px}
+  .review-feature-copy h3{font-size:20px}
+  .review-feature-copy p{font-size:13px}
+  .platform-directory{padding:21px}
+  .platform-directory-head h3{font-size:18px}
+  .floating-call{padding:11px 13px;gap:6px;right:11px;bottom:11px}
+  .floating-call small{font-size:11px}
+  .consult-card{margin-top:28px;border-radius:19px}
+  .consult-intro{padding:26px 22px}
+  .consult-intro h3{font-size:24px;line-height:1.48;margin:0 0 12px}
+  .consult-intro p{font-size:13px;line-height:1.7}
+  .consult-method{font-size:12px;margin:16px 0}
+  .consult-method strong{font-size:20px;margin-left:17px}
+  .consult-privacy-note{font-size:11px;margin-top:20px;padding-top:15px}
+  .consult-form-area{padding:24px 19px}
+  .consult-form-heading h4{font-size:19px}
+  .consult-fields{grid-template-columns:1fr;gap:13px}
+  .consult-field label{font-size:12px}
+  .consult-preview-wrap{padding:13px}
+  .consult-preview{font-size:11px}
+  .consult-actions .button{font-size:13px}
+}
+@media(max-width:380px){
+  .brand-hero-left h1{font-size:23px}
+  .section-heading h2{font-size:22px}
+  .hero-actions{gap:8px}
+  .hero-actions .button{padding:0 12px}
+  .brand-hero-visual > img{height:255px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
